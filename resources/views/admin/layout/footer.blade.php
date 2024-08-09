@@ -62,6 +62,7 @@ const myDonutChart = new Chart(ctx, {
             ctx.restore();
             ctx.font = `bold ${fontSize} Arial`;
             ctx.textAlign = 'center';
+            ctx.display = 'flex';
             ctx.textBaseline = 'middle';
 
             const centerText = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
