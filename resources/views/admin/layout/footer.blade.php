@@ -28,7 +28,7 @@
         }]
     },
     options: {
-        cutout: '50%', // For Chart.js 3.x and later
+        cutout: '90%', // For Chart.js 3.x and later
         plugins: {
             tooltip: {
                 callbacks: {
