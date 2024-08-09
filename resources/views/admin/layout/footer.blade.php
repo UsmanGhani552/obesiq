@@ -41,39 +41,39 @@
             }
         }
     },
-    plugins: [{
-        id: 'textInCenter',
-        beforeDraw: (chart) => {
-            const {ctx, chartArea, config} = chart;
-            const {width, height} = chartArea;
-            const radius = Math.min(width, height) / 2;
-            const cutoutPercentage = config.options.cutout || '90%'; // Get the cutout percentage
-            const cutout = parseInt(cutoutPercentage, 10) / 100; // Convert to decimal
-            const innerRadius = radius * cutout;
-            const innerDiameter = innerRadius * 2;
+    // plugins: [{
+    //     id: 'textInCenter',
+    //     beforeDraw: (chart) => {
+    //         const {ctx, chartArea, config} = chart;
+    //         const {width, height} = chartArea;
+    //         const radius = Math.min(width, height) / 2;
+    //         const cutoutPercentage = config.options.cutout || '90%'; // Get the cutout percentage
+    //         const cutout = parseInt(cutoutPercentage, 10) / 100; // Convert to decimal
+    //         const innerRadius = radius * cutout;
+    //         const innerDiameter = innerRadius * 2;
 
-            // Clear the area before drawing
-            ctx.restore();
-            ctx.font = 'bold 16px Poppins';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+    //         // Clear the area before drawing
+    //         ctx.restore();
+    //         ctx.font = 'bold 16px Poppins';
+    //         ctx.textAlign = 'center';
+    //         ctx.textBaseline = 'middle';
 
-            const centerX = width / 2;
-            const centerY = height / 2;
-            const text = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
-            const title = 'Correct';
+    //         const centerX = width / 2;
+    //         const centerY = height / 2;
+    //         const text = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
+    //         const title = 'Correct';
 
-            // Draw the total value in the center
-            ctx.fillText(text, centerX, centerY);
+    //         // Draw the total value in the center
+    //         ctx.fillText(text, centerX, centerY);
 
-            // Draw the title above the value
-            ctx.fillText(title, centerX, centerY - 10); // Adjust vertical positioning as needed
+    //         // Draw the title above the value
+    //         ctx.fillText(title, centerX, centerY - 10); // Adjust vertical positioning as needed
 
-            ctx.save();
+    //         ctx.save();
 
-            console.log('Inner Diameter:', innerDiameter); // Log or use the inner diameter as needed
-            }
-        }]
+    //         console.log('Inner Diameter:', innerDiameter); // Log or use the inner diameter as needed
+    //         }
+    //     }]
     });
 
 
