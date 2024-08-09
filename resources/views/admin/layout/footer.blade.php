@@ -57,7 +57,7 @@
 
             // Clear the area before drawing
             ctx.restore();
-            ctx.font = `bold ${fontSize}px Poppins`;
+            ctx.font = `bold ${'16'}px Poppins`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
 
