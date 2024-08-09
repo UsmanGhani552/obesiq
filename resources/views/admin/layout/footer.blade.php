@@ -30,7 +30,7 @@
         },
         options: {
             cutout: '90%', // For Chart.js 3.x and later
-            aspectRatio: 1,
+            aspectRatio: 300/300,
             plugins: {
                 tooltip: {
                     callbacks: {
@@ -58,7 +58,7 @@
         },
         options: {
             cutout: '90%', // For Chart.js 3.x and later
-            aspectRatio: 1,
+            aspectRatio: 300/300,
             plugins: {
                 tooltip: {
                     callbacks: {
