@@ -9,8 +9,8 @@
             <div class="startQuizBox">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="{{ ('assets/img/progress.png') }}" alt="">
-                        <img src="{{ ('assets/img/progress.png') }}" alt="">
+                        <canvas class="myDonutChart"></canvas>
+                        <canvas class="myDonutChart2"></canvas>
                     </div>
                     <div class="col-lg-4">
                         <div class="score">

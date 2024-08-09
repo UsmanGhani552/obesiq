@@ -9,7 +9,7 @@
             <div class="progressBox">
                 <div class="row">
                     <div class="col-lg-4">
-                        <canvas id="myDonutChart"></canvas>
+                        <canvas class="myDonutChart"></canvas>
                     </div>
                     <div class="col-lg-4">
                         <h3>Your Score</h3>

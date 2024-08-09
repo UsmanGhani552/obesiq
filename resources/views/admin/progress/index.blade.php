@@ -9,7 +9,7 @@
         <div class="progressPageBox">
             <div class="row">
                 <div class="col-lg-4">
-                    <img src="{{ asset('assets/img/progress.png') }}" alt="">
+                    <canvas class="myDonutChart"></canvas>
                     <!-- <img src="./assets/progress.png" alt=""> -->
                 </div>
                 <div class="col-lg-4">
@@ -88,5 +88,5 @@
         </div>
     </div>
 </div>
-    
+
 @endsection

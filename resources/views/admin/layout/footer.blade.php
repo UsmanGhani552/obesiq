@@ -13,67 +13,62 @@
 
 
     // pie chart functionality
-    const ctx = document.getElementById('myDonutChart').getContext('2d');
+    const ctx = document.querySelectorAll('.myDonutChart').getContext('2d');
+    const ctx2 = document.querySelectorAll('.myDonutChart2').getContext('2d');
 
     const myDonutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Correct', 'Blue'],
-        datasets: [{
-            label: 'My Dataset',
-            data: [80, 20],
-            backgroundColor: ['#058F05', '#EAEAEA'],
-            // borderColor: ['darkred', 'darkblue', 'darkyellow'],
-            // borderWidth: 1
-        }]
-    },
-    options: {
-        cutout: '90%', // For Chart.js 3.x and later
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const label = context.label || '';
-                        const value = context.raw;
-                        return `${label}: ${value}`;
+        type: 'doughnut',
+        data: {
+            labels: ['Correct', 'Blue'],
+            datasets: [{
+                label: 'My Dataset',
+                data: [80, 20],
+                backgroundColor: ['#058F05', '#EAEAEA'],
+                // borderColor: ['darkred', 'darkblue', 'darkyellow'],
+                // borderWidth: 1
+            }]
+        },
+        options: {
+            cutout: '90%', // For Chart.js 3.x and later
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw;
+                            return `${label}: ${value}`;
+                        }
                     }
                 }
             }
-        }
-    },
-    // plugins: [{
-    //     id: 'textInCenter',
-    //     beforeDraw: (chart) => {
-    //         const {ctx, chartArea, config} = chart;
-    //         const {width, height} = chartArea;
-    //         const radius = Math.min(width, height) / 2;
-    //         const cutoutPercentage = config.options.cutout || '90%'; // Get the cutout percentage
-    //         const cutout = parseInt(cutoutPercentage, 10) / 100; // Convert to decimal
-    //         const innerRadius = radius * cutout;
-    //         const innerDiameter = innerRadius * 2;
-
-    //         // Clear the area before drawing
-    //         ctx.restore();
-    //         ctx.font = 'bold 16px Poppins';
-    //         ctx.textAlign = 'center';
-    //         ctx.textBaseline = 'middle';
-
-    //         const centerX = width / 2;
-    //         const centerY = height / 2;
-    //         const text = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
-    //         const title = 'Correct';
-
-    //         // Draw the total value in the center
-    //         ctx.fillText(text, centerX, centerY);
-
-    //         // Draw the title above the value
-    //         ctx.fillText(title, centerX, centerY - 10); // Adjust vertical positioning as needed
-
-    //         ctx.save();
-
-    //         console.log('Inner Diameter:', innerDiameter); // Log or use the inner diameter as needed
-    //         }
-    //     }]
+        },
+    });
+    const myDonutChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: ['Incorrect', 'Blue'],
+            datasets: [{
+                label: 'My Dataset',
+                data: [80, 20],
+                backgroundColor: ['#CB0606', '#EAEAEA'],
+                // borderColor: ['darkred', 'darkblue', 'darkyellow'],
+                // borderWidth: 1
+            }]
+        },
+        options: {
+            cutout: '90%', // For Chart.js 3.x and later
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw;
+                            return `${label}: ${value}`;
+                        }
+                    }
+                }
+            }
+        },
     });
 
 
