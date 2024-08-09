@@ -15,7 +15,7 @@
     // pie chart functionality
     const ctx = document.getElementById('myDonutChart').getContext('2d');
 
-const myDonutChart = new Chart(ctx, {
+    const myDonutChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: ['Red', 'Blue', 'Yellow'],
@@ -40,14 +40,7 @@ const myDonutChart = new Chart(ctx, {
             },
             // Custom plugin to draw text in the center
             datalabels: {
-                display: true,
-                align: 'center',
-                justify:'center',
-                anchor: 'center',
-                color: 'black',
-                formatter: function(value, context) {
-                    return context.chart.data.labels[context.dataIndex];
-                }
+                display: false // Disable datalabels plugin if not needed
             }
         }
     },
@@ -56,23 +49,28 @@ const myDonutChart = new Chart(ctx, {
         beforeDraw: (chart) => {
             const {ctx, chartArea, config} = chart;
             const {width, height} = chartArea;
-            var fontSize = (height / 114).toFixed(2);
+            const fontSize = (height / 114).toFixed(2);
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const text = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
+            const title = 'Correct';
 
             // Clear the area before drawing
             ctx.restore();
-            ctx.font = `bold ${'16px'} Poppins`;
+            ctx.font = `bold ${fontSize}px Poppins`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
 
-            const centerText = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
-            const title = 'Correct';
+            // Draw the total value in the center
+            ctx.fillText(text, centerX, centerY);
 
-            ctx.fillText(centerText, width / 2, height / 2 + 10); // Adjust positioning as needed
-            ctx.fillText(title, width / 2, height / 2 - 10); // Adjust positioning as needed
+            // Draw the title above the value
+            ctx.fillText(title, centerX, centerY - (fontSize / 2)); // Adjust vertical positioning as needed
 
             ctx.save();
         }
     }]
 });
+
 
   </script>
