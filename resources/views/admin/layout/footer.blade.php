@@ -42,6 +42,7 @@ const myDonutChart = new Chart(ctx, {
             datalabels: {
                 display: true,
                 align: 'center',
+                justify:'center',
                 anchor: 'center',
                 color: 'black',
                 formatter: function(value, context) {
@@ -62,8 +63,8 @@ const myDonutChart = new Chart(ctx, {
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
 
-            const centerText = `Total: ${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
-            const title = 'My Donut Chart';
+            const centerText = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
+            const title = 'Correct';
 
             ctx.fillText(title, width / 2, height / 2 - 10); // Adjust positioning as needed
             ctx.fillText(centerText, width / 2, height / 2 + 10); // Adjust positioning as needed
