@@ -9,8 +9,8 @@
             <div class="startQuizBox">
                 <div class="row">
                     <div class="col-lg-4">
-                        <canvas class="myDonutChart" height="300px" width="300px"></canvas>
-                        <canvas class="myDonutChart2" height="300px" width="300px"></canvas>
+                        <canvas class="myDonutChart" style="height: 300px !important; width:300px !important;"></canvas>
+                        <canvas class="myDonutChart2" style="height: 300px !important; width:300px !important;"></canvas>
                     </div>
                     <div class="col-lg-4">
                         <div class="score">
