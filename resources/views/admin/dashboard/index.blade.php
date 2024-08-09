@@ -4,7 +4,7 @@
     <div class="progressDiv">
         <div class="container-fluid">
             <div class="headingSec">
-                <h2>Progress</h2>
+                <h2>Progress Report</h2>
             </div>
             <div class="progressBox">
                 <div class="row">
