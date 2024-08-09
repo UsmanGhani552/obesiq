@@ -18,7 +18,7 @@
     const myDonutChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Red', 'Blue', 'Yellow'],
+        labels: ['Red', 'Blue'],
         datasets: [{
             label: 'My Dataset',
             data: [10, 20, 30],
