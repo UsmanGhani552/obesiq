@@ -13,8 +13,8 @@
 
 
     // pie chart functionality
-    const ctx = document.querySelectorAll('.myDonutChart').getContext('2d');
-    const ctx2 = document.querySelectorAll('.myDonutChart2').getContext('2d');
+    const ctx = document.querySelectorAll('.myDonutChart');
+    const ctx2 = document.querySelectorAll('.myDonutChart2');
 
     const myDonutChart = new Chart(ctx, {
         type: 'doughnut',
