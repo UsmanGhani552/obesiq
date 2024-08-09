@@ -24,13 +24,13 @@
                 label: 'My Dataset',
                 data: [80, 20],
                 backgroundColor: ['#058F05', '#EAEAEA'],
+                fontSize:'18px',
                 // borderColor: ['darkred', 'darkblue', 'darkyellow'],
                 // borderWidth: 1
             }]
         },
         options: {
             cutout: '90%', // For Chart.js 3.x and later
-            aspectRatio: 300/300,
             plugins: {
                 tooltip: {
                     callbacks: {
@@ -50,15 +50,15 @@
             labels: ['Incorrect', 'Blue'],
             datasets: [{
                 label: 'My Dataset',
-                data: [80, 20],
+                data: [30, 70],
                 backgroundColor: ['#CB0606', '#EAEAEA'],
+                fontSize:'18px',
                 // borderColor: ['darkred', 'darkblue', 'darkyellow'],
                 // borderWidth: 1
             }]
         },
         options: {
             cutout: '90%', // For Chart.js 3.x and later
-            aspectRatio: 300/300,
             plugins: {
                 tooltip: {
                     callbacks: {
