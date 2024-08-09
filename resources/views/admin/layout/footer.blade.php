@@ -18,10 +18,10 @@
     const myDonutChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Red', 'Blue'],
+        labels: ['Correct', 'Blue'],
         datasets: [{
             label: 'My Dataset',
-            data: [10, 20, 30],
+            data: [80, 20],
             backgroundColor: ['#058F05', '#EAEAEA'],
             // borderColor: ['darkred', 'darkblue', 'darkyellow'],
             // borderWidth: 1
