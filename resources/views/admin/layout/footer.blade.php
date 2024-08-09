@@ -13,50 +13,66 @@
 
 
     // pie chart functionality
-    Chart.types.Doughnut.extend({
-        name: "myDonutChart",
-        showTooltip: function() {
-            this.chart.ctx.save();
-            Chart.types.Doughnut.prototype.showTooltip.apply(this, arguments);
-            this.chart.ctx.restore();
-        },
-        draw: function() {
-            Chart.types.Doughnut.prototype.draw.apply(this, arguments);
+    const ctx = document.getElementById('myDonutChart').getContext('2d');
 
-            var width = this.chart.width,
-                height = this.chart.height;
-
-            var fontSize = (height / 114).toFixed(2);
-            this.chart.ctx.font = fontSize + "em Verdana";
-            this.chart.ctx.textBaseline = "middle";
-
-            var text = "82%",
-                textX = Math.round((width - this.chart.ctx.measureText(text).width) / 2),
-                textY = height / 2;
-
-            this.chart.ctx.fillText(text, textX, textY);
+const myDonutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow'],
+        datasets: [{
+            label: 'My Dataset',
+            data: [10, 20, 30],
+            backgroundColor: ['red', 'blue', 'yellow'],
+            borderColor: ['darkred', 'darkblue', 'darkyellow'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const label = context.label || '';
+                        const value = context.raw;
+                        return `${label}: ${value}`;
+                    }
+                }
+            },
+            // Custom plugin to draw text in the center
+            datalabels: {
+                display: true,
+                align: 'center',
+                justify:'center',
+                anchor: 'center',
+                color: 'black',
+                formatter: function(value, context) {
+                    return context.chart.data.labels[context.dataIndex];
+                }
+            }
         }
-    });
+    },
+    plugins: [{
+        id: 'textInCenter',
+        beforeDraw: (chart) => {
+            const {ctx, chartArea, config} = chart;
+            const {width, height} = chartArea;
+            var fontSize = (height / 114).toFixed(2);
 
-    var data = [{
-        value: 30,
-        color: "#F7464A"
-    }, {
-        value: 50,
-        color: "#E2EAE9"
-    }, {
-        value: 100,
-        color: "#D4CCC5"
-    }, {
-        value: 40,
-        color: "#949FB1"
-    }, {
-        value: 120,
-        color: "#4D5360"
-    }];
+            // Clear the area before drawing
+            ctx.restore();
+            ctx.font = `bold ${fontSize} Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
 
-    var DoughnutTextInsideChart = new Chart($('#myDonutChart')[0].getContext('2d')).DoughnutTextInside(data, {
-        responsive: true
-    });
+            const centerText = `${chart.data.datasets[0].data.reduce((a, b) => a + b, 0)}`;
+            const title = 'Correct';
+
+            ctx.fillText(centerText, width / 2, height / 2 + 10); // Adjust positioning as needed
+            ctx.fillText(title, width / 2, height / 2 - 10); // Adjust positioning as needed
+
+            ctx.save();
+        }
+    }]
+});
 
   </script>
