@@ -43,7 +43,7 @@
             }
         },
     });
-    const myDonutChart = new Chart(ctx2, {
+    const myDonutChart2 = new Chart(ctx2, {
         type: 'doughnut',
         data: {
             labels: ['Incorrect', 'Blue'],
