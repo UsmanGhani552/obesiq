@@ -47,7 +47,7 @@
             const {ctx, chartArea, config} = chart;
             const {width, height} = chartArea;
             const radius = Math.min(width, height) / 2;
-            const cutoutPercentage = config.options.cutout || '50%'; // Get the cutout percentage
+            const cutoutPercentage = config.options.cutout || '90%'; // Get the cutout percentage
             const cutout = parseInt(cutoutPercentage, 10) / 100; // Convert to decimal
             const innerRadius = radius * cutout;
             const innerDiameter = innerRadius * 2;
