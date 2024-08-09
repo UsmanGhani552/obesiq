@@ -22,9 +22,9 @@
         datasets: [{
             label: 'My Dataset',
             data: [10, 20, 30],
-            backgroundColor: ['red', 'blue', 'yellow'],
-            borderColor: ['darkred', 'darkblue', 'darkyellow'],
-            borderWidth: 1
+            backgroundColor: ['#058F05', '#EAEAEA'],
+            // borderColor: ['darkred', 'darkblue', 'darkyellow'],
+            // borderWidth: 1
         }]
     },
     options: {
