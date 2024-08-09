@@ -9,7 +9,7 @@
             <div class="progressBox">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img src="{{ asset('assets/img/progress.png') }}" alt="">
+                        <canvas id="myDonutChart"></canvas>
                     </div>
                     <div class="col-lg-4">
                         <h3>Your Score</h3>
