@@ -761,6 +761,256 @@ html, body{
             }
         }
     }
+    .addQuestionDiv{
+        .container-fluid{
+            margin-top: 50px;
+            .headingSec{
+                .breadcrumb{
+                    align-items: center;
+                    .breadcrumb-item{
+                        a{
+                            color :rgba(0, 0, 0, 0.35);
+                            text-decoration: none;
+                            font-size: 18px;
+                        }
+                        &.active{
+                            a{
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+            .addQuestionBox{
+                border-radius: 24px;
+                background: #FFF;
+                box-shadow: 8px 8px 48px 8px rgba(0, 0, 0, 0.08);
+                padding: 50px;
+                .info{
+                    h2{
+                        font-size: 26px;
+                        font-weight: 500;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 14px;
+                        color: #000;
+                        padding-bottom: 20px;
+                    }
+                    h6{
+                        font-size: 18px;
+                    }
+                }
+                form{
+                    width: 80%;
+                    .mb-3{
+                        label{
+                            font-size: 13px;
+                            font-weight: 600;
+                        }
+                        input{
+                            height: 55px;
+                        }
+                        &.choice{
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 20px;
+                        }
+                        .d-flex{
+                            column-gap: 20px;
+                            .option{
+                                .input-group{
+                                    border-radius: 15px;
+                                    border: 1px solid rgba(149, 149, 149, 0.75);
+                                    overflow: hidden;
+                                    display: flex;
+                                    align-items: center;
+                                    column-gap: 10px;
+                                    padding: 0 10px;
+                                    span{
+                                        width: 30px;
+                                        height: 30px;
+                                        background-color: #1581B1;
+                                        color: #fff;
+                                        border-radius: 50%;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+                                    input{
+                                        border: none;
+                                        outline: none;
+                                    }
+                                }
+                                .form-check-input{
+                                    margin-top: 10px;
+                                    width: 15px;
+                                    height: 15px;
+                                }
+                                .form-check-label{
+                                    margin-top: 10px;
+                                    color: #686868;
+                                }
+                            }
+                        }
+                        textarea{
+                            height: 120px !important;
+                        }
+                    }
+                }
+                .buttons{
+                    .d-flex{
+                        justify-content: space-between;
+                        .btn{
+                            &:first-child{
+                                border-radius: 24px;
+                                background: #F0F0F0;
+                                padding: 12px 30px;
+                            }
+                            &:last-child{
+                                border-radius: 24px;
+                                background: #2388B5;
+                                padding: 12px 30px;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .tableDiv{
+        .container-fluid{
+            margin-top: 50px;
+            .headingSec{
+                .breadcrumb{
+                    align-items: center;
+                    .breadcrumb-item{
+                        a{
+                            color :rgba(0, 0, 0, 0.35);
+                            text-decoration: none;
+                            font-size: 18px;
+                        }
+                        &.active{
+                            a{
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+            .tableBox{
+                border-radius: 24px;
+                background: #FFF;
+                box-shadow: 8px 8px 48px 8px rgba(0, 0, 0, 0.08);
+                padding: 50px;
+                height: 75vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .info{
+                    h2{
+                        font-size: 26px;
+                        font-weight: 500;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 14px;
+                        color: #000;
+                        padding-bottom: 20px;
+                    }
+                    h6{
+                        font-size: 18px;
+                    }
+                }
+                table{
+                    thead{
+                        tr{
+                            th{
+                                font-size: 18px;
+                                font-weight: 500;
+                                text-align: center;
+                                &:first-child{
+                                    width: 60%;
+                                    text-align: left;
+                                }
+                                &:nth-child(2){
+                                    width: 30%;
+                                }
+                                &:nth-child(3){
+                                    width: 10%;
+                                }
+                            }
+                        }
+                    }
+                    tbody{
+                        &:before {
+                            content:"@";
+                            display:block;
+                            line-height:30px;
+                            text-indent:-99999px;
+                        }
+                        tr{
+                            td{
+                                text-align: center;
+                                &:first-child{
+                                    text-align: left;
+                                    width: 60%;
+                                    .d-flex{
+                                        align-items: center;
+                                    }
+                                }
+                                &:nth-child(2){
+                                    width: 30%;
+                                }
+                                &:nth-child(3){
+                                    width: 10%;
+                                    .d-flex{
+                                        justify-content: center;
+                                        align-items: center;
+                                        column-gap: 20px;
+                                    }
+                                }
+                                .d-flex{
+                                    column-gap: 20px;
+                                    column-width: fit-content;
+                                    span.number{
+                                        background-color: #1581B1;
+                                        width: 40px;
+                                        height: 30px ;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        border-radius: 50px;
+                                        color: #fff;
+                                        align-self: flex-start;
+                                    }
+                                    p{
+                                        font-size: 16px;
+                                        margin: 0;
+                                    }
+                                }
+                                .pill{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    p{
+                                        background-color: #E8E8E8;
+                                        border: 1px solid #A7A7A7;
+                                        padding: 15px 45px;
+                                        border-radius: 15px;
+                                    }
+                                }
+                                .btn{
+                                    padding: 0;
+                                    width: fit-content;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media(max-width:768px){
@@ -903,6 +1153,11 @@ html, body{
         }
         .flashcardDiv{
 
+        }
+        .tableDiv{
+            span.number{
+                width: 10% !important;
+            }
         }
     }
 }
