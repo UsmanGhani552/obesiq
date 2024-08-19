@@ -17,12 +17,6 @@ jobs:
         server: ${{secrets.FTP_HOST}}
         username: ${{secrets.FTP_USERNAME}}
         password: ${{secrets.FTP_PASSWORD}}
-    - name: Run commands on server
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
+        script:
           npm install
           npm run build # or `npm run dev` if needed
