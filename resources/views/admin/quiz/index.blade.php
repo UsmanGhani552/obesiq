@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="headingSec d-flex">
                 <h2>Progress</h2>
-                <button class="btn">Start Quiz</button>
+                <a class="btn btn-primary" href="{{ route('quiz-attempt') }}">Start Quiz</a>
             </div>
             <div class="startQuizBox">
                 <div class="row">

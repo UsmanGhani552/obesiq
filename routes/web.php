@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,22 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::middleware('auth')->group(function () {
+    Route::view('/quiz/index', 'admin.index')->name('admin.index');
+    Route::view('/quiz/create', 'admin.create')->name('admin.create');
+    
+    Route::view('/dashboard', 'admin.dashboard.index')->name('dashboard');
+    Route::view('/flashcard', 'admin.flashcard.index')->name('flashcard');
+    Route::view('/progress', 'admin.progress.index')->name('progress');
+    Route::view('/quiz','admin.quiz.index')->name('quiz');
 
-Route::view('/dashboard','admin.dashboard.index')->name('dashboard');
-Route::view('/flashcard','admin.flashcard.index')->name('flashcard');
-Route::view('/progress','admin.progress.index')->name('progress');
-Route::view('/quiz','admin.quiz.index')->name('quiz');
-Route::view('/quiz-attempt','admin.quiz-attempt.index')->name('quiz-attempt');
-Route::view('/quiz-result','admin.quiz-result.index')->name('quiz-result');
+    Route::get('/quiz-attempt', [QuizController::class, 'index'])->name('quiz-attempt');
+    Route::post('/quiz/submit', [QuizController::class, 'submitQuiz'])->name('quiz.submit');
+    Route::get('/quiz/{subject_id}', [QuizController::class, 'getQuiz'])->name('get-quiz');
+
+    Route::view('/quiz-results', 'admin.quiz-result.index')->name('quiz-result');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
