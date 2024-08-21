@@ -12,6 +12,6 @@ class Subject extends Model
     protected $table = 'subjects';
     protected $fillable = [
         'title',
-        'time',
+        'time'
     ];
 }

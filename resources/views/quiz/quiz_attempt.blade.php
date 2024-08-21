@@ -79,27 +79,27 @@
         var duration = 1 * 60; // 5 minutes
 
         // Update the timer display every second
-        var timerInterval = setInterval(function() {
-            var minutes = Math.floor(duration / 60);
-            var seconds = duration % 60;
+        // var timerInterval = setInterval(function() {
+        //     var minutes = Math.floor(duration / 60);
+        //     var seconds = duration % 60;
 
-            // Format the time as MM:SS
-            var formattedTime =
-                (minutes < 10 ? '0' : '') + minutes + ":" +
-                (seconds < 10 ? '0' : '') + seconds;
+        //     // Format the time as MM:SS
+        //     var formattedTime =
+        //         (minutes < 10 ? '0' : '') + minutes + ":" +
+        //         (seconds < 10 ? '0' : '') + seconds;
 
-            $('#timer').text(formattedTime);
+        //     $('#timer').text(formattedTime);
 
-            // Decrement the duration
-            duration--;
+        //     // Decrement the duration
+        //     duration--;
 
-            // Check if the timer has reached zero
-            if (duration < 0) {
-                clearInterval(timerInterval);
-                $('#timer').text("Time's up!");
-                submitQuiz();
-            }
-        }, 1000);
+        //     // Check if the timer has reached zero
+        //     if (duration < 0) {
+        //         clearInterval(timerInterval);
+        //         $('#timer').text("Time's up!");
+        //         submitQuiz();
+        //     }
+        // }, 1000);
         
         const subjectId = 1; // Replace with dynamic subject ID
         let currentQuestion = 0;
