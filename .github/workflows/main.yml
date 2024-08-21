@@ -16,7 +16,4 @@ jobs:
       with:
         server: ${{secrets.FTP_HOST}}
         username: ${{secrets.FTP_USERNAME}}
-        password: ${{secrets.FTP_PASSWORD}}
-        script:
-          npm install
-          npm run build # or `npm run dev`
+        password: ${{secrets.FTP_PASSWORD}
