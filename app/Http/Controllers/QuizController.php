@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 class QuizController extends Controller
 {
     public function index(){
-        return view('admin.quiz-attempt.index');
+        $subjects = Subject::all();
+        return view('quiz.index',[
+            'subjects' => $subjects
+        ]);
+    }
+    public function quizAttempt(){
+        return view('quiz.quiz_attempt');
     }
     public function getQuiz($subject_id){
         $subject = Subject::findOrFail($subject_id);
@@ -46,5 +52,9 @@ class QuizController extends Controller
             'status_code' => 200,
             'results' => $results
         ]);
+    }
+
+    public function quizResult(){
+        return view('quiz.quiz_result');
     }
 }
