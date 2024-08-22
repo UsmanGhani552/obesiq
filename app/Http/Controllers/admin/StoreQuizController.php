@@ -38,7 +38,7 @@ class StoreQuizController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreQuizQuestionRequest $request)
-    {
+    {   
         try{
             QuizQuestion::create($request->validated());
         }catch(Exception $e){

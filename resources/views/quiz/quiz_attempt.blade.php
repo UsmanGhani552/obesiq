@@ -23,7 +23,7 @@
         <div class="headingSec d-flex">
             <h2 id="quiz-title">Quiz</h2>
             <div class="btn-group">
-                <h5 id="xtimer">05:00</h5>
+                <h5 id="timer">05:00</h5>
                 <button class="btn">Save & Exit</button>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     <h6 id="question-number">Question No 1</h6>
                     <p id="question-text">Loading question...</p>
                 </div>
-                {{-- <div class="flag">
+                <div class="flag">
                     <button class="btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <g clip-path="url(#clip0_423_1156)">
@@ -47,9 +47,6 @@
                             </defs>
                         </svg>
                     </button>
-                </div> --}}
-                <div class="flag">
-                    <button class="btn">Flag Question</button>
                 </div>
             </div>
             <div class="options"></div>
@@ -76,32 +73,32 @@
 <script>
     $(document).ready(function() {
         // Set the duration (in seconds) for the countdown
-        var duration = 1 * 60; // 5 minutes
+        var duration = {{ $subject->time }} * 60; // 5 minutes
 
         // Update the timer display every second
-        // var timerInterval = setInterval(function() {
-        //     var minutes = Math.floor(duration / 60);
-        //     var seconds = duration % 60;
+        var timerInterval = setInterval(function() {
+            var minutes = Math.floor(duration / 60);
+            var seconds = duration % 60;
 
-        //     // Format the time as MM:SS
-        //     var formattedTime =
-        //         (minutes < 10 ? '0' : '') + minutes + ":" +
-        //         (seconds < 10 ? '0' : '') + seconds;
+            // Format the time as MM:SS
+            var formattedTime =
+                (minutes < 10 ? '0' : '') + minutes + ":" +
+                (seconds < 10 ? '0' : '') + seconds;
 
-        //     $('#timer').text(formattedTime);
+            $('#timer').text(formattedTime);
 
-        //     // Decrement the duration
-        //     duration--;
+            // Decrement the duration
+            duration--;
 
-        //     // Check if the timer has reached zero
-        //     if (duration < 0) {
-        //         clearInterval(timerInterval);
-        //         $('#timer').text("Time's up!");
-        //         submitQuiz();
-        //     }
-        // }, 1000);
+            // Check if the timer has reached zero
+            if (duration < 0) {
+                clearInterval(timerInterval);
+                $('#timer').text("Time's up!");
+                submitQuiz();
+            }
+        }, 1000);
         
-        const subjectId = 1; // Replace with dynamic subject ID
+        const subjectId = {{ $subject->id }}; // Replace with dynamic subject ID
         let currentQuestion = 0;
         let answers = {};
         let questions = []; // Define the questions variable here
@@ -111,11 +108,13 @@
                 url: `/quiz/${subjectId}`
                 , method: 'GET'
                 , success: function(data) {
+                    console.log(data.questions.length);
                     if (data.questions && Array.isArray(data.questions) && data.questions.length > 0) {
                         questions = data.questions; // Assign fetched questions to the global variable
                         loadQuestion(currentQuestion);
                     } else {
                         console.error('No questions found for the quiz.');
+                        $('#question-text').text('No questions found for the quiz.');
                     }
                 }
                 , error: function(err) {
@@ -228,10 +227,10 @@
         }
 
         // Also submit the quiz manually when the submit button is clicked
-        // $('#submit-quiz').click(function(e) {
-        //     e.preventDefault();
-        //     submitQuiz();
-        // });
+        $('#submit-quiz').click(function(e) {
+            e.preventDefault();
+            submitQuiz();
+        });
         loadQuiz(); // Initialize the quiz on page load
     });
 

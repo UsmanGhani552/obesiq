@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     // Route::view('/quiz','admin.quiz.index')->name('quiz');
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
     Route::get('/quiz/{subject_id}', [QuizController::class, 'getQuiz'])->name('get-quiz');
-    Route::get('/quiz-attempt', [QuizController::class, 'quizAttempt'])->name('quiz.attempt');
+    Route::post('/quiz-attempt', [QuizController::class, 'quizAttempt'])->name('quiz.attempt');
     Route::post('/quiz/submit', [QuizController::class, 'submitQuiz'])->name('quiz.submit');
     Route::get('/quiz-results', [QuizController::class, 'quizResult'])->name('quiz.result');
     // Route::view('/quiz-results', 'quiz.quiz_result')->name('quiz-result');

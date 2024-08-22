@@ -14,12 +14,21 @@ class QuizController extends Controller
             'subjects' => $subjects
         ]);
     }
-    public function quizAttempt(){
-        return view('quiz.quiz_attempt');
+    public function quizAttempt(Request $request){
+        $subjectId = $request->subject;
+        $subject = Subject::findOrFail($subjectId);
+        $type = $request->type;
+        $category = $request->category;
+        return view('quiz.quiz_attempt',[
+            'subject' => $subject,
+            'type' => $type,
+            'category' => $category,
+
+        ]);
     }
     public function getQuiz($subject_id){
         $subject = Subject::findOrFail($subject_id);
-        $questions = QuizQuestion::where('subject_id',$subject_id)->get();
+        $questions = QuizQuestion::where('subject_id',$subject_id)->get()->toArray();
         return response([
             'subject' => $subject,
             'questions' => $questions
