@@ -22,8 +22,8 @@ class StoreSubjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title',
-            'time'
+            'title' => 'required|string',
+            'time' => 'required|integer',
         ];
     }
 }

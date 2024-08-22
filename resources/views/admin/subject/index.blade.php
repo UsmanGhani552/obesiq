@@ -10,7 +10,11 @@
                             <li class="breadcrumb-item"><a href="#">Quizes</a></li>
                             <li class="breadcrumb-item active" aria-current="page">All Questions</li>
                         </div>
-                        <button class="btn">Add Question</button>
+                        {{-- <button class="btn"> --}}
+                            <a href="{{ route('admin.subject.create') }}">
+                                Add Question
+                            </a>
+                        {{-- </button> --}}
                     </ol>
                 </nav>
                 <!-- <h2>Progress</h2> -->

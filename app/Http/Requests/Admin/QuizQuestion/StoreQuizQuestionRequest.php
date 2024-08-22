@@ -22,14 +22,14 @@ class StoreQuizQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'question' => 'required',
-            'option1' => 'required',
-            'option2' => 'required',
-            'option3' => 'required',
-            'option4' => 'required',
-            'correct_answer' => 'required',
-            'explanation' => 'required',
-            'subject_id' => 'required',
+            'question' => 'required|string',
+            'option1' => 'required|string',
+            'option2' => 'required|string',
+            'option3' => 'required|string',
+            'option4' => 'required|string',
+            'correct_answer' => 'required|string',
+            'explanation' => 'required|string',
+            'subject_id' => 'required|exists:subjects,id',
         ];
     }
 }

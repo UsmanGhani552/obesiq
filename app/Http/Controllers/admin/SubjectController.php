@@ -35,15 +35,11 @@ class SubjectController extends Controller
      */
     public function store(StoreSubjectRequest $request)
     {   
-        // try {
-            // Subject::create($request->validated());
-        // } catch (Exception $e) {
-        //     return redirect()->back()->with('error', 'Something Went Wrong!');
-        // }
-        $subject = new Subject();
-        $subject->title = $request->input('title');
-        $subject->time = $request->input('time');
-        $subject->save();
+        try {
+            Subject::create($request->validated());
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Something Went Wrong!');
+        }
         return redirect()->route('admin.subject.index')->with('success', 'Subject created successfully!');
     }
 
@@ -70,19 +66,8 @@ class SubjectController extends Controller
      */
     public function update(UpdateSubjectRequest $request, Subject $subject)
     {
-        // try {
-        //     $subject->update($request->validated());
-        // } catch (Exception $e) {
-        //     return redirect()->back()->with('error', 'Something Went Wrong!');
-        // }
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'time' => 'required|integer',
-        ]);
-    
         try {
-            $subject->fill($validatedData);
-            $subject->save();
+            $subject->update($request->validated());
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Something Went Wrong!');
         }

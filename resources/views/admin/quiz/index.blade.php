@@ -3,11 +3,18 @@
 <div class="body">
     <div class="tableDiv">
         <div class="container-fluid">
-            <div class="headingSec d-flex">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Quizes</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">All Questions</li>
+            <div class="headingSec d-flex w-100">
+                <nav aria-label="breadcrumb"  class="w-100">
+                    <ol class="breadcrumb d-flex justify-content-between">
+                        <div class="d-flex">
+                            <li class="breadcrumb-item"><a href="#">Quizes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All Questions</li>
+                        </div>
+                        {{-- <button class="btn"> --}}
+                            <a href="{{ route('admin.quiz.create') }}">
+                                Add Question
+                            </a>
+                        {{-- </button> --}}
                     </ol>
                 </nav>
                 <!-- <h2>Progress</h2> -->

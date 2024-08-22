@@ -18,7 +18,7 @@ class StoreQuizController extends Controller
     public function index()
     {
         $quizQuestions = QuizQuestion::all();
-        return view('admin.index',[
+        return view('admin.quiz.index',[
             'quizQuestions' => $quizQuestions
         ]);
     }
@@ -29,7 +29,7 @@ class StoreQuizController extends Controller
     public function create()
     {
         $subjects = Subject::all();
-        return view('admin.create',[
+        return view('admin.quiz.create',[
             'subjects' => $subjects
         ]);
     }
@@ -61,7 +61,7 @@ class StoreQuizController extends Controller
     public function edit(QuizQuestion $quizQuestion)
     {
         $subjects = Subject::all();
-        return view('admin.edit',[
+        return view('admin.quiz.edit',[
             'subjects' => $subjects,
             'quizQuestion' => $quizQuestion,
         ]);
