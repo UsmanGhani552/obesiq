@@ -3,11 +3,14 @@
 <div class="body">
     <div class="tableDiv">
         <div class="container-fluid">
-            <div class="headingSec d-flex">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Quizes</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">All Questions</li>
+            <div class="headingSec d-flex w-100">
+                <nav aria-label="breadcrumb" class="w-100">
+                    <ol class="breadcrumb d-flex justify-content-between">
+                        <div class="d-flex">
+                            <li class="breadcrumb-item"><a href="#">Quizes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All Questions</li>
+                        </div>
+                        <button class="btn">Add Question</button>
                     </ol>
                 </nav>
                 <!-- <h2>Progress</h2> -->
@@ -30,6 +33,7 @@
                     <h2>All Questions & Subject</h2>
                     <p>This is dummy copy. It is not meant to be read. It has been placed here solely to demonstrate the look.</p>
                     <!-- <h6>Create Questions</h6> -->
+
                 </div>
                 <table id="myTable" class="display">
                     <thead>
