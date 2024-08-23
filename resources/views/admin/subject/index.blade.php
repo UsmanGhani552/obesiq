@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item active" aria-current="page">All Questions</li>
                         </div>
                         {{-- <button class="btn"> --}}
-                            <a href="{{ route('admin.subject.create') }}">
+                            <a class="btn" href="{{ route('admin.subject.create') }}">
                                 Add Question
                             </a>
                         {{-- </button> --}}

@@ -303,7 +303,7 @@ html{
     /* flex-grow: 1; */
     margin-left: 15vw;
     flex: 1;
-    padding: 0 40px;
+    padding: 0px 40px;
     transition: margin-left 0.3s ease;
     header{
         /* padding: 0 40px; */
@@ -1124,6 +1124,9 @@ html{
                 background: #FFF;
                 box-shadow: 8px 8px 48px 8px rgba(0, 0, 0, 0.08);
                 padding: 40px;
+                &:last-child{
+                    margin-bottom: 10px;
+                }
                 .question{
                     font-size: 18px;
                     font-weight: 500;
