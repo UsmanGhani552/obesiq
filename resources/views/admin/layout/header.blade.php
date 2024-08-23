@@ -31,7 +31,7 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
         </div>
-        <div class="dropdown">
+        {{-- <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0831 7.7735C13.5331 5.61183 16.0381 3.3335 19.9997 3.3335C23.9614 3.3335 26.4664 5.61183 27.9164 7.7735C28.8741 9.22537 29.5707 10.8334 29.9747 12.5252L32.5331 25.7152C32.6734 26.4389 32.6519 27.1848 32.4702 27.8993C32.2885 28.6138 31.951 29.2793 31.4819 29.8481C31.0128 30.4168 30.4238 30.8748 29.7569 31.1893C29.0901 31.5037 28.362 31.6668 27.6247 31.6668H12.3747C11.6375 31.6668 10.9094 31.5037 10.2425 31.1893C9.57569 30.8748 8.98664 30.4168 8.51756 29.8481C8.04849 29.2793 7.711 28.6138 7.52928 27.8993C7.34755 27.1848 7.32608 26.4389 7.4664 25.7152L10.0247 12.5252C10.4286 10.8329 11.1252 9.22588 12.0831 7.7735Z" fill="black"/>
@@ -45,7 +45,7 @@
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-        </div>
+        </div> --}}
         
     </div>
   </header>

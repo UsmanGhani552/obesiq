@@ -25,10 +25,16 @@
                     <div class="mb-3">
                         <label for="Question Name" class="form-label">Title</label>
                         <input type="text" name="title" class="form-control">
+                        @error('title')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                     </div>
                     <div class="mb-3">
                         <label for="Question Name" class="form-label">Time</label>
                         <input type="number" name="time" class="form-control">
+                        @error('time')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                     </div>
                     <div class="container-fluid buttons">
                         <div class="d-flex">

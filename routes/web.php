@@ -53,3 +53,9 @@ Route::middleware('auth')->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');  // Redirect to the home page or any other page after logout
+})->name('logout');

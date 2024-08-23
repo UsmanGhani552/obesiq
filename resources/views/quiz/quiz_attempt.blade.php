@@ -22,10 +22,12 @@
     <div class="container-fluid">
         <div class="headingSec d-flex">
             <h2 id="quiz-title">Quiz</h2>
+            @if($type == "timed")
             <div class="btn-group">
                 <h5 id="timer">05:00</h5>
                 <button class="btn">Save & Exit</button>
             </div>
+            @endif
         </div>
         <div class="quizBox">
             <div class="question">
@@ -72,36 +74,39 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
-        // Set the duration (in seconds) for the countdown
-        var duration = {{ $subject->time }} * 60; // 5 minutes
+        var type = "{{ "$type" }}";
+        var category = "{{ "$category" }}";
+        if (type == 'timed') {
 
-        // Update the timer display every second
-        var timerInterval = setInterval(function() {
-            var minutes = Math.floor(duration / 60);
-            var seconds = duration % 60;
+            var duration = {{$subject->time}}* 60; // 5 minutes
 
-            // Format the time as MM:SS
-            var formattedTime =
-                (minutes < 10 ? '0' : '') + minutes + ":" +
-                (seconds < 10 ? '0' : '') + seconds;
+            var timerInterval = setInterval(function() {
+                var minutes = Math.floor(duration / 60);
+                var seconds = duration % 60;
 
-            $('#timer').text(formattedTime);
+                // Format the time as MM:SS
+                var formattedTime =
+                    (minutes < 10 ? '0' : '') + minutes + ":" +
+                    (seconds < 10 ? '0' : '') + seconds;
 
-            // Decrement the duration
-            duration--;
+                $('#timer').text(formattedTime);
 
-            // Check if the timer has reached zero
-            if (duration < 0) {
-                clearInterval(timerInterval);
-                $('#timer').text("Time's up!");
-                submitQuiz();
-            }
-        }, 1000);
-        
-        const subjectId = {{ $subject->id }}; // Replace with dynamic subject ID
+                // Decrement the duration
+                duration--;
+
+                // Check if the timer has reached zero
+                if (duration < 0) {
+                    clearInterval(timerInterval);
+                    $('#timer').text("Time's up!");
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        const subjectId = {{$subject->id}};
         let currentQuestion = 0;
         let answers = {};
-        let questions = []; // Define the questions variable here
+        let questions = [];
 
         function loadQuiz() {
             $.ajax({
@@ -127,7 +132,7 @@
             if (questions.length > 0 && index < questions.length) {
                 const question = questions[index];
                 $('#question-number').text('Question No ' + (index + 1));
-                $('#question-text').text(questions[index].question);
+                $('#question-text').text(question.question);
                 $('.options').empty();
 
                 // Use the separate option fields
@@ -137,10 +142,12 @@
                     , question.option3
                     , question.option4
                 ];
+                const correct_answer = question.correct_answer;
                 // Default to an empty array if options is undefined
                 $.each(options, function(i, option) {
+                    console.log(correct_answer == changeToAlpha(i));
                     $('.options').append(
-                        `<button class="nav-link pill option-btn" id="${changeToAlpha(i)}" data-question-id="${questions[index].id}" data-option="${option}">${option}</button>`
+                        `<button class="nav-link pill option-btn ${category == 'answered' ? (correct_answer == changeToAlpha(i) ? 'bg-success' : '') : ''}" id="${changeToAlpha(i)}" data-question-id="${questions[index].id}" data-option="${option}">${option}</button>`
                     );
                 });
             } else {
@@ -195,7 +202,6 @@
             }
         });
 
-        // Function to submit the quiz
         function submitQuiz() {
             $.ajaxSetup({
                 headers: {
@@ -226,7 +232,6 @@
             });
         }
 
-        // Also submit the quiz manually when the submit button is clicked
         $('#submit-quiz').click(function(e) {
             e.preventDefault();
             submitQuiz();

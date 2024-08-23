@@ -19,6 +19,7 @@ class QuizController extends Controller
         $subject = Subject::findOrFail($subjectId);
         $type = $request->type;
         $category = $request->category;
+        // dd($type);
         return view('quiz.quiz_attempt',[
             'subject' => $subject,
             'type' => $type,
