@@ -1286,6 +1286,7 @@ html{
 
 @media(min-width:1100px) and (max-width:1400px) {
     .dashboardHome{
+        padding: 2.5vh 40px;
         .startQuizDiv{
             .col-lg-6{
                 .d-flex{
