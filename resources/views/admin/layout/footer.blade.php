@@ -15,6 +15,17 @@
       });
     });
 
+    const collapseElement = document.querySelector('.sidebar .collapse-horizontal');
+    const dashboardHome = document.querySelector('.dashboardHome');
+
+    collapseElement.addEventListener('shown.bs.collapse', () => {
+    document.querySelector('.sidebar').classList.add('expanded');
+    });
+
+    collapseElement.addEventListener('hidden.bs.collapse', () => {
+    document.querySelector('.sidebar').classList.remove('expanded');
+    });
+
 
     // pie chart functionality
     const ctx = document.querySelectorAll('.myDonutChart');

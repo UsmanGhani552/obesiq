@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar expanded">
     <div class="collapse collapse-horizontal show" id="collapseWidthExample">
         <div class="buttonBox">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">

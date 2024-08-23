@@ -1,15 +1,51 @@
 html, body{
-    overflow-x: clip;
+    overflow-x: clip !important;
     *{
         font-family: 'Poppins', sans-serif !important;
     }
 }
+body{
+    height: 100%;
+}
+html{
+    /* height: 100vh; */
+    overflow-y: scroll;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #225871;
+    border-radius: 50px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0D1E26;
+  }
+
+
+
+
+
 
 .main-container{
-    height: 100vh;
+    height: 100%;
+    overflow: visible;
     .d-flex{
         height: 100%;
         align-items: center;
+        justify-content: flex-end;
     }
 }
 
@@ -28,7 +64,15 @@ html, body{
     background-color: #1581B1;
     border-radius: 25px;
     overflow: hidden;
-    height: 95vh;
+    overflow-y: auto;
+    height: 100%;
+    margin-bottom: 2.5vh;
+    /* position: sticky; */
+    top: 2.5vh;
+    left: 1vw;
+    /* width: 100%; */
+    position: fixed;
+    transition: width 0.3s ease;
     .collapse-horizontal.collapsing{
         transition: 0.5s width !important;
         width: 5vw !important;
@@ -68,7 +112,7 @@ html, body{
                 }
             }
             .navbar-nav{
-                margin-top: 50% !important;
+                margin-top: 30px !important;
                 transition-duration: 0.5s;
                 align-items: flex-start;
                 transition-timing-function: ease-in-out;
@@ -174,10 +218,12 @@ html, body{
 @media(min-width:1100px) and (max-width:1400px) {
     .sidebar{
         .collapse-horizontal{
+            height: max-content;
             &.show{
                 width: 20vw;
                 .navbar-nav{
                     margin-top: 10% !important;
+                    margin-bottom: 40px;
                 }
             }
             .logoutBox{
@@ -222,18 +268,42 @@ html, body{
 
 
 
+.sidebar.expanded + .dashboardHome {
+    margin-left: 15vw; /* Sidebar is expanded */
+    transition: margin-left 0.3s ease;
+}
 
+.sidebar + .dashboardHome {
+    margin-left: 5vw; /* Sidebar is collapsed */
+    transition: margin-left 0.3s ease;
+}
+@media(min-width:1100px) and (max-width:1400px){
+    .sidebar.expanded + .dashboardHome {
+        margin-left: 20vw; /* Sidebar is expanded */
+        transition: margin-left 0.3s ease;
+    }
+
+    .sidebar + .dashboardHome {
+        margin-left: 5vw; /* Sidebar is collapsed */
+        transition: margin-left 0.3s ease;
+    }
+
+}
 
 
 .dashboardHome{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    width: 100%;
+    /* height: 100vh; */
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
+    /* width: 80vw; */
+    /* flex-grow: 1; */
+    margin-left: 15vw;
+    flex: 1;
     padding: 0 40px;
+    transition: margin-left 0.3s ease;
     header{
         /* padding: 0 40px; */
         height: fit-content !important;
@@ -908,6 +978,12 @@ html, body{
                             }
                         }
                     }
+                    .btn{
+                        border-radius: 24px;
+                        background: #2388B5;
+                        padding: 12px 30px;
+                        color: #fff;
+                    }
                 }
             }
             .tableBox{
@@ -915,9 +991,9 @@ html, body{
                 background: #FFF;
                 box-shadow: 8px 8px 48px 8px rgba(0, 0, 0, 0.08);
                 padding: 50px;
-                height: 75vh;
-                overflow-y: auto;
-                overflow-x: hidden;
+                /* height: 75vh; */
+                /* overflow-y: auto; */
+                /* overflow-x: hidden; */
                 .info{
                     height: max-content;
                     justify-content: space-between;
@@ -978,6 +1054,7 @@ html, body{
                                     text-align: left;
                                     width: 60%;
                                     .d-flex{
+                                        justify-content: flex-start;
                                         align-items: center;
                                     }
                                 }
@@ -1033,7 +1110,41 @@ html, body{
             }
         }
     }
-    
+    .body{
+        margin-top: 40px;
+        h1{
+            font-size: 26px;
+            font-weight: 500;
+        }
+        #results-container{
+            .result-container{
+                border-radius: 24px;
+                background: #FFF;
+                box-shadow: 8px 8px 48px 8px rgba(0, 0, 0, 0.08);
+                padding: 40px;
+                .question{
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+                .options{
+                    row-gap: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    .option{
+                        border-radius: 24px;
+                        border: 1px solid #ACACAC;
+                        background-color: #fff;
+                        padding: 15px 20px;
+                        &.correct{
+                            border: 1px solid #50D201;
+                            background: #C6E9C3;
+                        }
+                    }
+                }
+                .explanation{}
+            }
+        }
+    }
 }
 
 @media(max-width:768px){
