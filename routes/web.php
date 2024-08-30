@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
-Route::middleware('auth')->group(function () {
+Route::middleware('admin')->group(function () {
     // Route::view('/admin/quiz/index', 'admin.index')->name('admin.index');
     // Route::view('/admin/quiz/create', 'admin.create')->name('admin.create');
     Route::get('/admin/quiz/index', [StoreQuizController::class, 'index'])->name('admin.quiz.index');
@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/subject/edit/{subject}', [SubjectController::class, 'edit'])->name('admin.subject.edit');
     Route::post('/admin/subject/update/{subject}', [SubjectController::class, 'update'])->name('admin.subject.update');
     Route::get('/admin/subject/delete/{subject}', [SubjectController::class, 'destroy'])->name('admin.subject.delete');
+
+});
+Route::middleware('auth')->group(function () {
     
     Route::view('/dashboard', 'admin.dashboard.index')->name('dashboard');
     Route::view('/flashcard', 'admin.flashcard.index')->name('flashcard');

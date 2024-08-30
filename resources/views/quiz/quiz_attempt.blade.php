@@ -55,7 +55,7 @@
             <div class="navigation">
                 <button class="previous btn">PREVIOUS</button>
                 <button class="next btn">NEXT</button>
-                <button class="btn btn-primary" id="submit-quiz">Submit Quiz</button>
+                <button class="next btn d-none" id="submit-quiz">Submit Quiz</button>
             </div>
         </div>
     </div>
@@ -110,10 +110,9 @@
 
         function loadQuiz() {
             $.ajax({
-                url: `/quiz/${subjectId}`
-                , method: 'GET'
-                , success: function(data) {
-                    console.log(data.questions.length);
+                url: `/quiz/${subjectId}`, 
+                method: 'GET',
+                success: function(data) {
                     if (data.questions && Array.isArray(data.questions) && data.questions.length > 0) {
                         questions = data.questions; // Assign fetched questions to the global variable
                         loadQuestion(currentQuestion);
@@ -121,8 +120,8 @@
                         console.error('No questions found for the quiz.');
                         $('#question-text').text('No questions found for the quiz.');
                     }
-                }
-                , error: function(err) {
+                },
+                error: function(err) {
                     console.error('Error fetching quiz data:', err);
                 }
             });
@@ -186,6 +185,7 @@
             $('.previous').removeClass('hidden')
             if (currentQuestion >= questions.length - 2) {
                 $(this).addClass('hidden')
+                $('#submit-quiz').removeClass('d-none')
             }
             currentQuestion++;
             loadQuestion(currentQuestion);
@@ -193,6 +193,7 @@
 
         $('.previous').click(function() {
             $('.next').removeClass('hidden')
+            $('#submit-quiz').addClass('d-none')
             if (!(currentQuestion > 1)) {
                 $(this).addClass('hidden')
             }
